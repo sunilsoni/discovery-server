@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+     <groupId>com.jci-discovery-server</groupId> 
+    <artifactId>discovery-server</artifactId>
+     <version>1.0.0-SNAPSHOT</version> 
+    <packaging>jar</packaging>
+
+    <name>sample-eureka</name>
+    <description>Eureka Sample App</description>
+
+	<parent>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-parent</artifactId>
+		<version>Angel.SR6</version>
+        <relativePath/>
+    </parent> 
+    <properties>
+        <start-class>com.jci.registry.EurekaApplication</start-class>
+		 <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+	 <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-client</artifactId>
+        </dependency>
+	        <dependency>
+        	<!-- Setup Spring MVC & REST, use Embedded Tomcat -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+       
+    </dependencies>
+    <build>
+ <plugins>
+	         <plugin>
+			      <groupId>com.heroku.sdk</groupId>
+			      <artifactId>heroku-maven-plugin</artifactId>
+			      <version>1.0.0</version>
+			      <configuration>
+			       <!--  <appName>${heroku.appName}</appName> -->
+			       <appName>sample-config-server</appName>
+			        <processTypes>
+			           <!-- <web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>  -->
+			          <web>java -jar target/sample-config-server-0.0.1-SNAPSHOT.jar</web> 
+			        </processTypes>
+			      </configuration>
+			    </plugin>
+			 
+           		 
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+     
+       
+        </plugins>
+    </build>
+</project>

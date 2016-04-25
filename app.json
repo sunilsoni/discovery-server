@@ -1,7 +1,7 @@
 {
   "name": "E2Open Eureka Server",
   "description": "Eureka Server for E2Open POC.",
-  "website": "https://github.com/kissaten/heroku-eureka-server-demo",
+  "website": "https://github.com/sunilsoni/discovery-server",
   "success_url": "/",
   "env": {
       "EUREKA_USER_PASSWORD": {

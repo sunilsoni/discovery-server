@@ -6,7 +6,7 @@ security:
 
 eureka:
   instance:
-    hostname: ec2-54-163-225-208.compute-1.amazonaws.com
+    hostname: localhost
   client:
     registerWithEureka: false
     fetchRegistry: false
